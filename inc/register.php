@@ -39,5 +39,3 @@ if(isset($_POST['submit'])) {
 		</tr>
 	</table>
 </form>
-
-<p><a href="index.php">Login</a></p>
