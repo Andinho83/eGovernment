@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS `eGovernment`;
+
+USE `eGovernment`;
+
+CREATE TABLE IF NOT EXISTS `User` (
+	`id` INT AUTO_INCREMENT NOT NULL,
+	`surname` VARCHAR(50) NOT NULL,
+	`name` VARCHAR (50) NOT NULL,
+	`password` VARCHAR(20) NOT NULL,
+	PRIMARY KEY (id)
+);
