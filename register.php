@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" media="screen" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-	<title>eGovernment | Login</title>
+	<title>eGovernment | Registration</title>
 </head>
 <body>
 
@@ -19,17 +19,13 @@ if(isset($_POST['submit']))
 {
 	$db = DatabaseManager::getInstance();
 	$mysqli = $db->getConnection();
-	$stmt = $mysqli->prepare("SELECT `name`, `password` FROM `user` WHERE `name` = ? AND `password` = ?");
-	$stmt->bind_param("ss", $name, $password);
+	$stmt = $mysqli->prepare("INSERT INTO `user` (`surname`, `name`, `password`) VALUES (?, ?, ?)");
+	$stmt->bind_param("sss", $surname, $name, $password);
+	$surname = $_POST['surname'];
 	$name = $_POST['name'];
 	$password = sha1($_POST['password']);
 	$stmt->execute();
-	$stmt->store_result();
-	
-	if ($stmt->num_rows == 1) {
-		echo "<p><b>Login war erfolgreich!</b></p>";
-	}
-	
+	echo "<p><b>Registrierung war erfolgreich!</b></p>";
 	$stmt->close();
 }
 
@@ -38,7 +34,11 @@ if(isset($_POST['submit']))
 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 	<table>
 		<tr>
-			<td><label>User: </label></td>
+			<td><label>Surname: </label></td>
+			<td><input type="text" name="surname" /></td>
+		</tr>
+		<tr>
+			<td><label>Name: </label></td>
 			<td><input type="text" name="name" /></td>
 		</tr>
 		<tr>
@@ -47,12 +47,12 @@ if(isset($_POST['submit']))
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" name="submit" value="Login" /></td>
+			<td><input type="submit" name="submit" value="Register" /></td>
 		</tr>
 	</table>
 </form>
 
-<p><a href="register.php">Registration</a></p>
+<p><a href="index.php">Login</a></p>
 
 </body>
 </html>
