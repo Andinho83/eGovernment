@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" media="screen" href="style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-	<title>eGovernment | Registration</title>
-</head>
-<body>
-
 <?php
 
 error_reporting(E_ALL);
 
 require_once('db.php');
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])) {
 	$db = DatabaseManager::getInstance();
 	$mysqli = $db->getConnection();
 	$stmt = $mysqli->prepare("INSERT INTO `user` (`surname`, `name`, `password`) VALUES (?, ?, ?)");
@@ -53,6 +41,3 @@ if(isset($_POST['submit']))
 </form>
 
 <p><a href="index.php">Login</a></p>
-
-</body>
-</html>
