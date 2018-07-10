@@ -13,8 +13,8 @@
 	<header>#HEADER</header>
 	<nav>
 		<ul>
-			<li><a href="index.php?content=login">Login</a></li>
-			<li><a href="index.php?content=register">Register</a></li>
+			<li><a href="index.php?id=login">Login</a></li>
+			<li><a href="index.php?id=register">Register</a></li>
 		</ul>
 	</nav>
 	<article><?php include_once('ContentManager.php'); ?></article>
