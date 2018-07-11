@@ -1,8 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
-
-require_once('db.php');
+require_once('./db.php');
 
 if(isset($_POST['submit'])) {
 	$db = DatabaseManager::getInstance();
@@ -17,13 +15,16 @@ if(isset($_POST['submit'])) {
 	if ($stmt->num_rows == 1) {
 		echo "<p><b>Login war erfolgreich!</b></p>";
 	}
+	else {
+		echo "<p><b>Login war nicht erfolgreich!</b></p>";
+	}
 	
 	$stmt->close();
 }
 
 ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+<form method="post" action="index.php?id=login">
 	<table>
 		<tr>
 			<td><label>User: </label></td>

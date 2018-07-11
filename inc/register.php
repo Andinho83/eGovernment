@@ -1,8 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
-
-require_once('db.php');
+require_once('./db.php');
 
 if(isset($_POST['submit'])) {
 	$db = DatabaseManager::getInstance();
@@ -19,7 +17,7 @@ if(isset($_POST['submit'])) {
 
 ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+<form method="post" action="index.php?id=register">
 	<table>
 		<tr>
 			<td><label>Surname: </label></td>
