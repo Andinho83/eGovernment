@@ -13,7 +13,6 @@ if(isset($_POST['submit'])) {
 	$stmt->store_result();
 	
 	if ($stmt->num_rows == 1) {
-		session_start();
 		$_SESSION['user'] = $_POST['name'];
 		header("Location: index.php?id=secret");
 	}
