@@ -13,7 +13,9 @@ if(isset($_POST['submit'])) {
 	$stmt->store_result();
 	
 	if ($stmt->num_rows == 1) {
-		echo "<p><b>Login war erfolgreich!</b></p>";
+		session_start();
+		$_SESSION['user'] = $_POST['name'];
+		header("Location: index.php?id=secret");
 	}
 	else {
 		echo "<p><b>Login war nicht erfolgreich!</b></p>";

@@ -15,6 +15,12 @@
 		<ul>
 			<li><a href="index.php?id=login">Login</a></li>
 			<li><a href="index.php?id=register">Register</a></li>
+			<?php
+			session_start();
+			if( !empty($_SESSION) ) {
+				echo "<li><a href=\"index.php?id=logout\">Logout</a></li>";
+			}
+			?>
 		</ul>
 	</nav>
 	<article><?php include_once('ContentManager.php'); ?></article>
