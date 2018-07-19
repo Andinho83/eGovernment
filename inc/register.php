@@ -1,5 +1,7 @@
 <?php
 
+echo "<h1>Register</h1>";
+
 require_once('./db.php');
 
 if(isset($_POST['submit'])) {

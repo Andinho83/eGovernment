@@ -8,7 +8,13 @@
 	<title>eGovernment</title>
 </head>
 <body>
-<?php session_start(); ?>
+
+<?php 
+if ( empty($_SESSION) ) {
+	session_start(); 
+}
+?>
+
 <main>
 	<header>#HEADER</header>
 	<nav>
@@ -16,7 +22,7 @@
 			<li><a href="index.php?id=login">Login</a></li>
 			<li><a href="index.php?id=register">Register</a></li>
 			<?php
-			if( isset($_SESSION['user']) ) {
+			if ( !empty($_SESSION) && isset($_SESSION['user']) ) {
 				echo "<li><a href=\"index.php?id=logout\">Logout</a></li>";
 			}
 			?>

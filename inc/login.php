@@ -1,5 +1,7 @@
 <?php
 
+echo "<h1>Login</h1>";
+
 require_once('./db.php');
 
 if(isset($_POST['submit'])) {
@@ -15,6 +17,7 @@ if(isset($_POST['submit'])) {
 	if ($stmt->num_rows == 1) {
 		$_SESSION['user'] = $_POST['name'];
 		header("Location: index.php?id=secret");
+		exit();
 	}
 	else {
 		echo "<p><b>Login war nicht erfolgreich!</b></p>";
@@ -29,11 +32,11 @@ if(isset($_POST['submit'])) {
 	<table>
 		<tr>
 			<td><label>User: </label></td>
-			<td><input type="text" name="name" /></td>
+			<td><input type="text" name="name" placeholder="Last name" /></td>
 		</tr>
 		<tr>
 			<td><label>Password: </label></td>
-			<td><input type="password" name="password" /></td>
+			<td><input type="password" name="password" placeholder="Password" /></td>
 		</tr>
 		<tr>
 			<td></td>

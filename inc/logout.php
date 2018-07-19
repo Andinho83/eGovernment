@@ -1,9 +1,10 @@
 <?php 
 
-session_destroy();
-if( isset($_SESSION['user']) ) {
-	unset($_SESSION['user']);
+// unset all session variables
+$_SESSION = array();
+
+if( session_destroy() ) {
+	header("Location: index.php?id=home");
 }
-echo "<p><b>Logout successful!</b></p>";
 
 ?>
